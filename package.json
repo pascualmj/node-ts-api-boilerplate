@@ -10,17 +10,6 @@
     "lint": "eslint src --ext ts",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
