@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 // API Routes
-app.get('/hi', (req: Request, res: Response): void => {
+app.get('/hi', (req: Request, res: Response) => {
   res.status(200).json({
     message: 'Hi! Follow me on twitter @manupasc',
   })
