@@ -3,8 +3,10 @@ import morgan from 'morgan'
 import cors from 'cors'
 
 import { AppError } from './types'
+import getRoutes, { addRoutesToRouter } from './routes'
 
 const app: Application = express()
+const router: express.Router = express.Router()
 
 // Middlewares
 app.use(morgan('dev'))
@@ -12,12 +14,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(cors())
 
-// API Routes
-app.get('/hi', (req: Request, res: Response) => {
-  res.status(200).json({
-    message: 'Hi! Follow me on twitter @manupasc',
-  })
-})
+// Routes
+app.use(addRoutesToRouter({ router, routes: getRoutes() }))
 
 // Error handling
 app.use((req: Request, res: Response, next: NextFunction) => {
