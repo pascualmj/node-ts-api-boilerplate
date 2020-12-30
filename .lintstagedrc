@@ -1,6 +1,7 @@
 {
   "*.ts": [
     "eslint --fix",
-    "prettier --write"
+    "prettier --write",
+    "npm test"
   ]
 }
