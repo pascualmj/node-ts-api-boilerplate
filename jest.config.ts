@@ -1,6 +1,7 @@
 import type { Config } from '@jest/types'
 
 const config: Config.InitialOptions = {
+  preset: 'ts-jest',
   testEnvironment: 'node',
   rootDir: 'src',
   coverageThreshold: {
@@ -12,6 +13,8 @@ const config: Config.InitialOptions = {
     },
   },
   setupFiles: ['../jest.setup.ts'],
+  verbose: true,
+  clearMocks: true,
 }
 
 export default config
