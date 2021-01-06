@@ -12,10 +12,17 @@ async function exec() {
   prompt.start()
   try {
     const { resourceName } = await prompt.get(schema)
-    createResource({ resourceName })
+    const result = await createResource({ resourceName })
+    if (!result) throw new Error(2)
     console.log('Resource created successfully!')
   } catch (err) {
-    console.log('Resource creation cancelled!')
+    switch (err.message) {
+      case 2:
+        console.log('Resource already exists! Try again with a new identifier.')
+        break
+      default:
+        console.log('Resource creation cancelled!')
+    }
   }
 }
 
