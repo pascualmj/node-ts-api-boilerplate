@@ -2,6 +2,6 @@
   "*.ts": [
     "eslint --fix",
     "prettier --write",
-    "jest"
+    "jest --bail --findRelatedTests"
   ]
 }
