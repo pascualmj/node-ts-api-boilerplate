@@ -1,4 +1,3 @@
-const fs = require('fs')
 const prompt = require('prompt')
 const schema = require('./schema')
 const createResource = require('./creator')
@@ -18,7 +17,7 @@ async function exec() {
     console.log(MESSAGES.resourceCreated)
   } catch (err) {
     switch (err.message) {
-      case [MESSAGES.resourceExists]:
+      case MESSAGES.resourceExists:
         console.log(MESSAGES.resourceExists)
         break
       default:

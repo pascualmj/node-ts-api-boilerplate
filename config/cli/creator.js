@@ -1,12 +1,13 @@
 const fs = require('fs')
 const { promisify } = require('util')
-const { contentController, contentRoute, contentPath } = require('./contents')
+const { contentController, contentRoute, contentPath, contentTest } = require('./contents')
 
 const accessPromise = promisify(fs.access)
 
 module.exports = async ({ resourceName }) => {
   const filePathController = `./src/controllers/${resourceName}.controller.ts`
   const filePathRoute = `./src/routes/${resourceName}.routes.ts`
+  const filePathTest = `./src/controllers/__tests__/${resourceName}.controller.test.ts`
   const filePathConstants = './src/constants/paths.ts'
   const props = { resourceName }
 
@@ -16,6 +17,7 @@ module.exports = async ({ resourceName }) => {
   } catch (err) {
     fs.writeFileSync(filePathController, contentController(props))
     fs.writeFileSync(filePathRoute, contentRoute(props))
+    fs.writeFileSync(filePathTest, contentTest(props))
     fs.appendFileSync(filePathConstants, contentPath(props))
     return true
   }
