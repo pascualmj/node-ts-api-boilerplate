@@ -54,3 +54,22 @@ test('Hello: Should return status 200 and json response.', () => {
   expect(jsonMock).toHaveBeenCalledWith(data)
 })
 `
+
+exports.contentRouteRoot = ({ resourceName, fs }) => {
+  const routesDirFiles = fs.readdirSync('./src/routes')
+  const resourcesFiles = routesDirFiles.filter(f => f.endsWith('.routes.ts'))
+  const resourcesList = resourcesFiles.map(f => f.replace('.routes.ts', ''))
+
+  return `import { AppRoute } from '../types'
+  
+  ${resourcesList
+    .map(resource => `import ${resource}Routes from './${resource}.routes'`)
+    .join('\n')}
+  import ${resourceName}Routes from './${resourceName}.routes'
+  
+  export default (): AppRoute[] => [
+    ${resourcesList.map(resource => `...${resource}Routes,`).join('\n')}
+    ...${resourceName}Routes
+  ]
+  `
+}

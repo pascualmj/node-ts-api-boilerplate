@@ -11,7 +11,7 @@
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "test": "jest --watch",
     "test:ci": "jest",
-    "resource:create": "node config/cli/cli.js"
+    "resource:create": "node config/cli/cli.js && npm run format"
   },
   "author": "",
   "license": "ISC",
