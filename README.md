@@ -8,6 +8,7 @@
 - Jest
 - Eslint & Prettier
 - Husky & Lint Staged
+- CLI with Prompt
 - CI with Github Actions
 
 ## 👍 Feel free to use this boilerplate
@@ -43,6 +44,10 @@ Runs your test files in watch mode.
 ### `npm run test:ci`
 
 Runs your test files only once.
+
+### `npm run resource:create`
+
+Runs the built-in CLI for resource creation.
 
 ## 🤝 Contributing
 

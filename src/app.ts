@@ -3,7 +3,8 @@ import morgan from 'morgan'
 import cors from 'cors'
 
 import { AppError } from './types'
-import getRoutes, { addRoutesToRouter } from './routes'
+import getRoutes from './routes'
+import { addRoutesToRouter } from './routes/utils'
 
 const app: Application = express()
 const router: express.Router = express.Router()
