@@ -4,6 +4,7 @@ const config: Config.InitialOptions = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   rootDir: 'src',
+  coverageDirectory: '../coverage',
   coverageThreshold: {
     global: {
       statements: 50,

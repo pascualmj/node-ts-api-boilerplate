@@ -10,6 +10,7 @@
 - Husky & Lint Staged
 - CLI with Prompt
 - CI with Github Actions
+- Docker Setup
 
 ## 👍 Feel free to use this boilerplate
 
